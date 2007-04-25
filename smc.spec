@@ -11,7 +11,7 @@ License: GPL
 Group: Games/Arcade
 Url: http://www.secretmaryo.org/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: CEGUI-devel SDL_ttf-devel SDL_mixer-devel SDL_image-devel  
+BuildRequires: CEGUI-devel SDL_ttf-devel SDL_mixer-devel SDL_image-devel boost-devel
 
 %description
 Secret Maryo Chronicles is a 2D platform game Game built upon SDL.
