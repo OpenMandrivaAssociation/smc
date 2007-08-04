@@ -1,6 +1,7 @@
 %define name smc
 %define version 1.0
-%define release %mkrel 1
+%define release %mkrel 2
+%define icon %{_datadir}/smc/pixmaps/maryo/small/fall_right.png
 
 Summary: Secret Maryo Chronicles - a 2D platform game in classic style
 Name: %{name}
@@ -29,6 +30,10 @@ yes no | unzip %SOURCE1
 %build
 %make
 
+%check
+# to check if the icon macro still contains a valid file
+test -f %{buildroot}%{icon}
+
 %install
 rm -rf $RPM_BUILD_ROOT
 %makeinstall
@@ -40,7 +45,7 @@ Encoding=UTF-8
 Name=Secret Maryo Chronicles
 Comment=A 2D platform game in the classic style
 Exec=%{_bindir}/%{name} 
-Icon=%{name}
+Icon=%{icon}
 Terminal=false
 Type=Application
 StartupNotify=true
