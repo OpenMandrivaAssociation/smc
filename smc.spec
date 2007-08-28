@@ -41,7 +41,6 @@ rm -rf $RPM_BUILD_ROOT
 mkdir -p %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop <<EOF
 [Desktop Entry]
-Encoding=UTF-8
 Name=Secret Maryo Chronicles
 Comment=A 2D platform game in the classic style
 Exec=%{_bindir}/%{name} 
