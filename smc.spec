@@ -1,19 +1,19 @@
 %define name smc
-%define version 1.0
-%define release %mkrel 2
-%define icon %{_datadir}/smc/pixmaps/maryo/small/fall_right.png
+%define version 1.2
+%define release %mkrel 1
 
-Summary: Secret Maryo Chronicles - a 2D platform game in classic style
-Name: %{name}
-Version: %{version}
-Release: %{release}
-Source0: %{name}-%{version}.tar.bz2
-Source1: http://prdownloads.sourceforge.net/smclone/SMC_music_4.0_high.zip
-License: GPL
-Group: Games/Arcade
-Url: http://www.secretmaryo.org/
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: CEGUI-devel SDL_ttf-devel SDL_mixer-devel SDL_image-devel boost-devel
+Summary:	Secret Maryo Chronicles - a 2D platform game in classic style
+Name:		%{name}
+Version:	%{version}
+Release:	%{release}
+Source0:	http://prdownloads.sourceforge.net/smclone/%{name}-%{version}.tar.bz2
+Source1:	http://prdownloads.sourceforge.net/smclone/SMC_music_4.0_high.zip
+License:	GPLv3+
+Group:		Games/Arcade
+URL:		http://www.secretmaryo.org/
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRequires:	CEGUI-devel SDL_ttf-devel SDL_mixer-devel SDL_image-devel boost-devel
+BuildRequires:	ImageMagick
 
 %description
 Secret Maryo Chronicles is an open source two-dimensional platform
@@ -22,21 +22,20 @@ utilizes the platform independent library SDL and an OpenGL
 accelerated graphics renderer developed in C++.
 
 %prep
-%setup -q
-# The same file is provided twice
-yes no | unzip %SOURCE1 
-%configure
+%setup -q -a 1
 
 %build
+%configure2_5x
 %make
 
-%check
-# to check if the icon macro still contains a valid file
-test -f %{buildroot}%{icon}
-
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall
+
+mkdir -p %{buildroot}%{_iconsdir}/hicolor/{16x16,32x32,48x48}/apps
+convert -scale 48 data/pixmaps/maryo/small/fall_right.png %{buildroot}%{_iconsdir}/hicolor/48x48/apps/%{name}.png
+convert -scale 32 data/pixmaps/maryo/small/fall_right.png %{buildroot}%{_iconsdir}/hicolor/32x32/apps/%{name}.png
+convert -scale 16 data/pixmaps/maryo/small/fall_right.png %{buildroot}%{_iconsdir}/hicolor/16x16/apps/%{name}.png
 
 mkdir -p %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop <<EOF
@@ -44,7 +43,7 @@ cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop <<EOF
 Name=Secret Maryo Chronicles
 Comment=A 2D platform game in the classic style
 Exec=%{_bindir}/%{name} 
-Icon=%{icon}
+Icon=%{name}
 Terminal=false
 Type=Application
 StartupNotify=true
@@ -53,15 +52,18 @@ EOF
 
 %post
 %{update_menus}
+%{update_icon_cache hicolor}
 
 %postun
 %{clean_menus}
+%{clean_icon_cache hicolor}
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%{_bindir}/smc
-%{_datadir}/smc
+%{_bindir}/%{name}
+%{_datadir}/%{name}
 %{_datadir}/applications/mandriva-%{name}.desktop
+%{_iconsdir}/hicolor/*/apps/%{name}.png
