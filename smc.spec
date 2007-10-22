@@ -22,7 +22,9 @@ utilizes the platform independent library SDL and an OpenGL
 accelerated graphics renderer developed in C++.
 
 %prep
-%setup -q -a 1
+%setup -q
+# The same file is provided twice
+yes no | unzip %SOURCE1
 
 %build
 %configure2_5x
