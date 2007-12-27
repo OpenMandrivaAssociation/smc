@@ -27,6 +27,7 @@ accelerated graphics renderer developed in C++.
 yes no | unzip %SOURCE1
 
 %build
+./autogen.sh
 %configure2_5x
 %make
 
