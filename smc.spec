@@ -12,7 +12,7 @@ License:	GPLv3+
 Group:		Games/Arcade
 URL:		http://www.secretmaryo.org/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:	CEGUI-devel SDL_ttf-devel SDL_mixer-devel SDL_image-devel boost-devel
+BuildRequires:	CEGUI-devel SDL_ttf-devel SDL_mixer-devel SDL_image-devel boost-devel libpng-devel
 BuildRequires:	ImageMagick
 
 %description
