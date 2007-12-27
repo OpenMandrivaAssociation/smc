@@ -29,7 +29,7 @@ yes no | unzip %SOURCE1
 %build
 ./autogen.sh
 %configure2_5x
-%make
+%make LDADD=-lpng
 
 %install
 rm -rf %{buildroot}
