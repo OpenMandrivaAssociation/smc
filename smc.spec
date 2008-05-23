@@ -1,5 +1,5 @@
 %define name smc
-%define version 1.4
+%define version 1.5
 %define release %mkrel 1
 
 Summary:	Secret Maryo Chronicles - a 2D platform game in classic style
@@ -33,7 +33,7 @@ yes no | unzip %SOURCE1
 
 %install
 rm -rf %{buildroot}
-%makeinstall
+%makeinstall_std
 
 mkdir -p %{buildroot}%{_iconsdir}/hicolor/{16x16,32x32,48x48}/apps
 convert -scale 48 data/pixmaps/maryo/small/fall_right.png %{buildroot}%{_iconsdir}/hicolor/48x48/apps/%{name}.png
