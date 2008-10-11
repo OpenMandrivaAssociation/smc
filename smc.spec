@@ -1,6 +1,6 @@
 %define name smc
-%define version 1.5
-%define release %mkrel 5
+%define version 1.6
+%define release %mkrel 1
 
 Summary:	Secret Maryo Chronicles - a 2D platform game in classic style
 Name:		%{name}
@@ -8,6 +8,8 @@ Version:	%{version}
 Release:	%{release}
 Source0:	http://prdownloads.sourceforge.net/smclone/%{name}-%{version}.tar.bz2
 Source1:	http://prdownloads.sourceforge.net/smclone/SMC_music_4.0_high.zip
+# Fix build with recent boost - AdamW 2008/10
+Patch0:		smc-1.6-boost.patch
 License:	GPLv3+
 Group:		Games/Arcade
 URL:		http://www.secretmaryo.org/
@@ -24,7 +26,8 @@ accelerated graphics renderer developed in C++.
 %prep
 %setup -q
 # The same file is provided twice
-yes no | unzip %SOURCE1
+yes no | unzip %{SOURCE1}
+%patch0 -p1 -b .boost
 
 %build
 %configure2_5x
