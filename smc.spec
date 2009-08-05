@@ -27,7 +27,7 @@ accelerated graphics renderer developed in C++.
 %setup -q
 # The same file is provided twice
 yes no | unzip %{SOURCE1}
-%patch0 -p1 -b .boost
+# %patch0 -p1 -b .boost
 
 %build
 %configure2_5x
