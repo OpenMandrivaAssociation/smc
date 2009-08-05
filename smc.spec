@@ -7,7 +7,7 @@ Name:		%{name}
 Version:	%{version}
 Release:	%{release}
 Source0:	http://prdownloads.sourceforge.net/smclone/%{name}-%{version}.tar.bz2
-Source1:	http://prdownloads.sourceforge.net/smclone/SMC_music_4.1_high.zip
+Source1:	http://prdownloads.sourceforge.net/smclone/SMC_Music_4.1_high.zip
 # Fix build with recent boost - AdamW 2008/10
 Patch0:		smc-1.6-boost.patch
 License:	GPLv3+
