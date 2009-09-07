@@ -1,5 +1,5 @@
 %define name smc
-%define version 1.8
+%define version 1.9
 %define release %mkrel 3
 
 Summary:	Secret Maryo Chronicles - a 2D platform game in classic style
