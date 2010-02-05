@@ -14,7 +14,12 @@ License:	GPLv3+
 Group:		Games/Arcade
 URL:		http://www.secretmaryo.org/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:	CEGUI-devel SDL_ttf-devel SDL_mixer-devel SDL_image-devel boost-devel libpng-devel
+BuildRequires:	CEGUI0.6-devel
+BuildRequires:	SDL_ttf-devel
+BuildRequires:	SDL_mixer-devel
+BuildRequires:	SDL_image-devel
+BuildRequires:	boost-devel
+BuildRequires:	libpng-devel
 BuildRequires:	imagemagick
 
 %description
@@ -26,8 +31,7 @@ accelerated graphics renderer developed in C++.
 %prep
 %setup -q
 # The same file is provided twice
-yes no | unzip %{SOURCE1}
-# %patch0 -p1 -b .boost
+yes no | unzip -q %{SOURCE1}
 
 %build
 %configure2_5x
