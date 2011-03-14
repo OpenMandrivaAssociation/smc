@@ -1,6 +1,6 @@
 %define name smc
 %define version 1.9
-%define release %mkrel 6
+%define release %mkrel 7
 
 Summary:	Secret Maryo Chronicles - a 2D platform game in classic style
 Name:		%{name}
@@ -34,8 +34,9 @@ accelerated graphics renderer developed in C++.
 yes no | unzip -q %{SOURCE1}
 
 %build
+export CXXFLAGS="%optflags -DBOOST_FILESYSTEM_VERSION=2"
 %configure2_5x
-%make LDADD=-lpng
+%make
 
 %install
 rm -rf %{buildroot}
