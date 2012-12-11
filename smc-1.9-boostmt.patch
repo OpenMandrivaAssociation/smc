@@ -1,0 +1,10 @@
+--- configure.ac.boost	2011-12-11 20:33:01.779644931 +0100
++++ configure.ac	2011-12-11 20:36:53.440492213 +0100
+@@ -23,6 +23,7 @@
+   ;;
+ *)
+   # Other Unix (Linux)
++  LIBS="$LIBS -lboost_system"
+   AC_CHECK_LIB(GL, main, , has_gl=no)
+   AC_CHECK_LIB(GLU, main, , has_glu=no)
+   if test "x$has_gl" = "xno" -o "x$has_glu" = "xno"; then
