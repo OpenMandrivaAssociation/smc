@@ -1,7 +1,7 @@
 Summary:	Secret Maryo Chronicles - a 2D platform game in classic style
 Name:		smc
 Version:	1.9
-Release:	13
+Release:	14
 License:	GPLv3+
 Group:		Games/Arcade
 URL:		http://www.secretmaryo.org/
