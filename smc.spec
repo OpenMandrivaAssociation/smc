@@ -4,7 +4,7 @@ Version:	1.9
 Release:	14
 License:	GPLv3+
 Group:		Games/Arcade
-URL:		http://www.secretmaryo.org/
+URL:		https://www.secretmaryo.org/
 Source0:	http://prdownloads.sourceforge.net/smclone/%{name}-%{version}.tar.bz2
 Source1:	http://prdownloads.sourceforge.net/smclone/SMC_Music_5.0_high.zip
 # suggested in http://thread.gmane.org/gmane.linux.redhat.fedora.rpmfusion.devel/7651/focus=7665
